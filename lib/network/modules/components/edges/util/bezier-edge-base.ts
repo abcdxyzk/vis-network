@@ -186,7 +186,8 @@ export abstract class BezierEdgeBase<Via> extends EdgeBase<Via> {
     viaNode2?: Point
   ): void {
     ctx.beginPath();
-    ctx.moveTo(this.fromPoint.x, this.fromPoint.y);
+    // 把线条的起点移到边框上,方便设置线条起点层高ei
+    ctx.moveTo(this.fromPoint.x + this.from.shape.width / 2, this.fromPoint.y + this.options.ei);
 
     if (viaNode1 != null && viaNode1.x != null) {
       if (viaNode2 != null && viaNode2.x != null) {
@@ -195,7 +196,7 @@ export abstract class BezierEdgeBase<Via> extends EdgeBase<Via> {
           viaNode1.y,
           viaNode2.x,
           viaNode2.y,
-          this.toPoint.x,
+          this.toPoint.x - this.to.shape.width / 2, // 把线条的终点移到边框上
           this.toPoint.y
         );
       } else {
