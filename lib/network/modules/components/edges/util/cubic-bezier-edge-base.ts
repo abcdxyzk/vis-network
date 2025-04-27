@@ -50,7 +50,7 @@ export abstract class CubicBezierEdgeBase<Via> extends BezierEdgeBase<Via> {
     let lastX = x1;
     let lastY = y1;
     const vec = [0, 0, 0, 0];
-    for (let i = 1; i < 10; i++) {
+    for (let i = 1; i <= 10; i++) {
       const t = 0.1 * i;
       vec[0] = Math.pow(1 - t, 3);
       vec[1] = 3 * t * Math.pow(1 - t, 2);

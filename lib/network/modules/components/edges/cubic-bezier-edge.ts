@@ -78,6 +78,9 @@ export class CubicBezierEdge extends CubicBezierEdgeBase<[Point, Point]> {
       x2 = this.to.x;
     }
 
+    y1 += this.options.ei; // 起点层高
+    x1 += this.from.shape.width / 2; // 起点移到边框上
+    x2 -= this.to.shape.width / 2; // 终点移到边框上
     return [
       { x: x1, y: y1 },
       { x: x2, y: y2 },
